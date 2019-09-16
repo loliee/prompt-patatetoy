@@ -1,6 +1,6 @@
-# Patatetoy
+# Patatetoy Prompt
 
-[![Build Status](https://travis-ci.org/loliee/patatetoy.svg?branch=master)](https://travis-ci.org/loliee/patatetoy)
+[![Build Status](https://travis-ci.org/loliee/prompt-patatetoy.svg?branch=master)](https://travis-ci.org/loliee/prompt-patatetoy)
 
 > Pretty, minimal and fast `Zsh/Bash` prompt, initialy forked from [pure](https://github.com/sindresorhus/pure).
 
@@ -19,7 +19,7 @@
 Clone repository.
 
 ```bash
-git clone https://github.com/loliee/patatetoy.git "$HOME/.patatetoy"
+git clone https://github.com/loliee/prompt-patatetoy.git "$HOME/.patatetoy"
 ```
 
 ### Zsh
@@ -156,7 +156,7 @@ prompt patatetoy
 
 ## Tips
 
-- [patatetoy-iterm2](https://github.com/loliee/patatetoy-iterm2) colorscheme, for having the real patatetoy.
+- [patatetoy](https://github.com/loliee/patatetoy) dynamic and light colorscheme for dailyuse.
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting), to colorized output.
 - [sshrc](https://github.com/Russell91/sshrc), to bring the light bash version with you when you ssh.
 
