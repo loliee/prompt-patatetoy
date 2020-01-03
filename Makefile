@@ -12,3 +12,4 @@ help:
 test: ## Test prompt files
 	$(info --> Test files)
 	@shellcheck -s bash $(PWD)/patatetoy_common.sh
+	@shellcheck -s bash $(PWD)/patatetoy.sh
