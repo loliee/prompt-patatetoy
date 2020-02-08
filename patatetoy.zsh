@@ -316,6 +316,16 @@ prompt_pure_async_git_fetch() {
 	# Set SSH `BachMode` to disable all interactive SSH password prompting.
 	export GIT_SSH_COMMAND="${GIT_SSH_COMMAND:-"ssh"} -o BatchMode=yes"
 
+	local ref
+	ref=$(command git symbolic-ref -q HEAD)
+	local -a remote
+	remote=($(command git for-each-ref --format='%(upstream:remotename) %(refname)' $ref))
+
+	if [[ -z $remote[1] ]]; then
+		# No remote specified for this branch, skip fetch.
+		return 97
+	fi
+
 	# Default return code, which indicates Git fetch failure.
 	local fail_code=99
 
