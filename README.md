@@ -6,13 +6,11 @@
 
 ![](screenshot.png)
 
-## Why?
+## Why ?
 
-- Add bash version.
-- Add python virtualenv support.
+- Add a bash version.
 - Add git rebase/merge steps.
-- Add vi mode support (zsh version only).
-- Add configuration vars for colors and symbols, see [#options] section.
+- Add flat configuration vars for colors and symbols, see [#options] section.
 
 ## Install
 
@@ -41,102 +39,45 @@ source "$HOME/.patatetoy/patatetoy.sh
 
 ## Options
 
-Possible colors are: `black` `red` `green` `yellow` `blue` `magenta` `cyan` `grey` `white`
+### Symbols
 
-Color configuration depend of which version you configure, zsh version don't require `$` prefix for setting color.
+| var                                          | default                | description                                                                                                   |
+|----------------------------------------------|:----------------------:|---------------------------------------------------------------------------------------------------------------|
+| `PATATETOY_PROMPT_SYMBOL`                    | `❯`                    | Character to use as prompt symbol.                                                                            |
+| `PATATETOY_GIT_DIRTY_SYMBOL`                 | `✗`                    | Character to use if git repository is dirty.                                                                  |
+| `PATATETOY_GIT_UP_ARROW`                     | `⬆`                    | Git upstream forward char.                                                                                    |
+| `PATATETOY_GIT_DOWN_ARROW`                   | `⬇`                    | Git upstream behind char.                                                                                     |
+| `PATATETOY_GIT_STASH_SYMBOL`                 | `ⵢ`                    | Character to use if stash exists.                                                                             |
+| `PATATATETOY_ROOT_SYMBOL`                    | `✦`                    | Define ROOT user warning symbol.                                                                              |
 
-```bash
-PATATETOY_GIT_ARROW_COLOR="blue" # Zsh
-PATATETOY_GIT_ARROW_COLOR="$blue" # Bash
-```
+### Colors
 
-#### `PATATETOY_INSTALL_DIR`
+Possible colors are: `black` `red` `green` `yellow` `blue` `magenta` `cyan` `grey` `darkgrey` `white`.
 
-Define custom install directory, default `$HOME`
+| var                                          | default                | description                                                                                                   |
+|----------------------------------------------|:----------------------:|---------------------------------------------------------------------------------------------------------------|
+| `PATATETOY_CURSOR_COLOR_OK`                  | `yellow`               | Define cursor color for sucessed previous command.                                                            |
+| `PATATETOY_CURSOR_COLOR_KO`                  | `red`                  | Define cursor color for failed previous command.                                                              |
+| `PATATETOY_GIT_ARROW_COLOR`                  | `yellow`               | Define git upstream arrow's color.                                                                            |
+| `PATATETOY_GIT_BRANCH_COLOR`                 | `darkgrey`             | Define branch color.                                                                                          |
+| `PATATETOY_GIT_DIRTY_SYMBOL_COLOR`           | `darkgrey`             | Define dirty symbol color.                                                                                    |
+| `PATATETOY_GIT_STASH_COLOR`                  | `cyan`                 | Define stash symbol color.                                                                                    |
+| `PATATETOY_PATH_COLOR`                       | `blue`                 | Define path color.                                                                                            |
+| `PATATETOY_ROOT_SYMBOL_COLOR`                | `red`                  | Define root symbol color.                                                                                     |
+| `PATATETOY_USERNAME_COLOR`                   | `red`                  | Define hostname/username color.                                                                               |
+| `PATATETOY_VIRTUALENV_COLOR`                 | `darkgrey`             | Define virtualenv color.                                                                                      |
 
-#### `PATATETOY_PROMPT_SYMBOL`
+### Settings
 
-Character to use as prompt symbol, default `❯`.
-
-#### `PATATETOY_CURSOR_COLOR_OK`
-
-Define cursor color for sucessed previous command.
-
-#### `PATATETOY_CURSOR_COLOR_KO`
-
-Define cursor color for failed previous command.
-
-#### `PATATETOY_VIM_MODE` **(zsh version only)**
-
-Unset by default, set to `1` to enable vi-mode visual indicator
-
-#### `PATATETOY_GIT_DISABLE` **(bash version only)**
-
-Default to `0`, set to `1` to disable git vcs infos (slow machines).
-
-#### `PATATETOY_GIT_DIRTY_SYMBOL`
-
-If git repository is dirty, default to `✗`.
-
-#### `PATATETOY_GIT_ARROW_COLOR`
-
-Define git upstream arrow's color.
-
-#### `PATATETOY_GIT_UP_ARROW`
-
-Git upstream forward char, default to `⬆`.
-
-#### `PATATETOY_GIT_DOWN_ARROW`
-
-Git upqtream behind char, default to `⬇`.
-
-#### `PATATETOY_GIT_STASH_CHECK`
-
-Set to `0` to disable stash checking.
-
-#### `PATATETOY_GIT_STASH_SYMBOL`
-
-Git stash char, default to `ⵢ`.
-
-#### `PATATETOY_GIT_STASH_COLOR`
-
-Define git stash char's color.
-
-#### `PATATETOY_FORCE_DISPLAY_USERNAME`
-
-Set to `1` to force username and host.
-
-#### `PATATETOY_USERNAME_COLOR`
-
-Define username/host color.
-
-#### `PATATATETOY_ROOT_SYMBOL`
-
-Define ROOT user warning symbol and color. default to `✦`.
-
-#### `PATATETOY_ROOT_SYMBOL_COLOR`
-
-Define root symbol color. default to `red`.
-
-#### `PATATETOY_GIT_DIRTY_CHECK`
-
-Set to `0` to disable dirty check. Only useful with `bash prompt version` and on extremely huge repos like the WebKit repo.
-
-#### `PATATETOY_GIT_UNTRACKED_DIRTY`
-
-Set to `0` to not include untracked files in dirtiness check. Only really useful on extremely huge repos like the WebKit repo.
-
-#### `PATATETOY_GIT_PULL` **(zsh version only)**
-
-Set `0` to prevent Patatetoy from checking whether the current Git remote has been updated.
-
-#### `PATATETOY_GIT_DELAY_DIRTY_CHECK` **(zsh version only)**
-
-Time in seconds to delay git dirty checking for large repositories (git status takes > 2 seconds). The check is performed asynchronously, this is to save CPU. Defaults to `1800` seconds.
-
-#### `PATATETOY_CMD_MAX_EXEC_TIME` **(zsh version only)**
-
-The max execution time of a process before its run time is shown when it exits. Defaults to `5` seconds.
+| var                                          | default                | description                                                                                                   |
+|----------------------------------------------|:----------------------:|---------------------------------------------------------------------------------------------------------------|
+| `PATATETOY_SRC_DIR`                          | `${HOME}/.patatetoy`   | Define source directory path.                                                                                 |
+| `PATATETOY_FORCE_DISPLAY_USERNAME`           | `0`                    | Force username & host display.                                                                                |
+| `PATATETOY_GIT_DIRTY_CHECK`                  | `1`                    | Disable dirty check. Only useful with `bash prompt version` and on extremely huge repos like the WebKit repo. |
+| `PATATETOY_GIT_UNTRACKED_DIRTY`              | `1`                    | Set to `0` to not include untracked files in dirtiness check.                                                 |
+| `PATATETOY_GIT_PULL`                         | `0`                    | Set `0` to prevent Patatetoy from checking whether the current Git remote has been updated.                   |
+| `PATATETOY_CMD_MAX_EXEC_TIME`                | `5`                    | The max execution time (in seconds) of a process before its run time is shown when it exits.                  |
+| `PATATETOY_GIT_DELAY_DIRTY_CHECK` (zsh only) | `1800`                 | Time in seconds to delay git dirty checking for large repositories (git status takes > 2 seconds).            |
 
 ## Example
 
@@ -146,13 +87,18 @@ The max execution time of a process before its run time is shown when it exits. 
 autoload -U promptinit && promptinit
 
 # optionally define some options
-PATATATETOY_CMD_MAX_EXEC_TIME=10
-PATATATETOY_FORCE_DISPLAY_USERNAME=1
-PATATATETOY_USERNAME_COLOR=red
-PATATATETOY_VIM_MODE=1
+PATATETOY_CMD_MAX_EXEC_TIME=10
+PATATETOY_FORCE_DISPLAY_USERNAME=1
+PATATETOY_USERNAME_COLOR=red
 
 prompt patatetoy
 ```
+
+## Screenshots
+
+### Rebase
+
+![](screenshot_rebase.png)
 
 ## Tips
 
